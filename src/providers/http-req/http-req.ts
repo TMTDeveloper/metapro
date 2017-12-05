@@ -20,7 +20,7 @@ import {
 */
 @Injectable()
 export class HttpReqProvider {
-  baseurl: string = 'http://103.77.78.131:8080/semetapro/api/'
+  baseurl: string = 'http://202.158.20.141:5001/semetapro/api/'
   constructor(public http: Http) {}
 
   getreq(url: string) {

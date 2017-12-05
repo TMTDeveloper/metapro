@@ -8,24 +8,21 @@
 </ion-header>
 
 <ion-content padding>
-
-
-
   <ion-segment>
     <div class="butcol">
-      <button ion-button color="danger" clear class="colbut" (click)="showPrompt('saldo')">
-      SALDO
-    </button>
+      <button ion-button clear class="colbut" (click)="showPrompt('saldo')">
+        SALDO
+      </button>
     </div>
     <div class="butcol">
       <button ion-button color="danger" clear class="colbut">
-      KALENDER
-    </button>
+        KALENDER
+      </button>
     </div>
     <div class="butcol">
       <button ion-button color="danger" clear class="colbut" (click)="agenCheck()">
-      QR CODE
-    </button>
+        QR CODE
+      </button>
     </div>
   </ion-segment>
 
@@ -41,41 +38,30 @@
     </ion-slide>
   </ion-slides>
   <div class="spacer" style="height: 30px;"></div>
-  <ion-segment>
-    <div class="butcolmenu">
-      <button ion-button color="danger" clear class="colbutmenu" (click)="gotoPage('LakupandaiPage')">
-    <img src="http://golekno.com/metapro/wp-content/uploads/sites/2/2017/07/lakupandai300.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    </button>
+  <div class="container">
+    <div class="butcolmenu" button (click)="gotoPage('LakupandaiPage')">
+      <img src="assets/img/lakupandai.png" class="imgbutton">
     </div>
-    <div class="butcolmenu">
-      <button ion-button color="danger" clear class="colbutmenu" (click)="gotoPage('MobilePage')">
-      <img src="http://golekno.com/metapro/wp-content/uploads/sites/2/2017/07/mobile-banking300.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    </button>
+    <div button class="butcolmenu" (click)="gotoPage('MobilePage')">
+      <img src="assets/img/mobile.png" class="imgbutton">
     </div>
-    <div class="butcolmenu">
-      <button ion-button color="danger" clear class="colbutmenu" (click)="gotoPage('ProdukperbankanPage')">
-      <img src="http://golekno.com/metapro/wp-content/uploads/sites/2/2017/07/produk300.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    </button>
+    <div class="butcolmenu" button (click)="gotoPage('ProdukperbankanPage')">
+      <img src="assets/img/produk.png" class="imgbutton">
     </div>
-  </ion-segment>
+  </div>
   <div class="spacer" style="height: 30px;"></div>
-  <ion-segment>
-    <div class="butcolmenu">
-      <button ion-button color="danger" clear class="colbutmenu" (click)="gotoPage('PembelianPage')">
-    <img src="http://golekno.com/metapro/wp-content/uploads/sites/2/2017/07/pembelian300.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    </button>
+  <div class="container">
+    <div class="butcolmenu" button (click)="gotoPage('PembelianPage')">
+      <img src="assets/img/pembelian.png" class="imgbutton">
     </div>
-    <div class="butcolmenu">
-      <button ion-button color="danger" clear class="colbutmenu"  (click)="gotoPage('PembayaranPage')">
-      <img src="http://golekno.com/metapro/wp-content/uploads/sites/2/2017/07/pembayaran300.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    </button>
+    <div class="butcolmenu" button (click)="gotoPage('PembayaranPage')">
+      <img src="assets/img/pembayaran.png" class="imgbutton">
     </div>
-    <div class="butcolmenu">
-      <button ion-button color="danger" clear class="colbutmenu" (click)="gotoPage('ReportPage')">
-      <img src="http://golekno.com/metapro/wp-content/uploads/sites/2/2017/07/report300.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    </button>
+    <div class="butcolmenu" button (click)="gotoPage('ReportPage')">
+      <img src="assets/img/report.png" class="imgbutton">
+
     </div>
-  </ion-segment>
+  </div>
 
 
 </ion-content>

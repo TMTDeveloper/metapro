@@ -4,10 +4,11 @@ import { VouchergamesPage } from './vouchergames';
 
 @NgModule({
   declarations: [
-    VouchergamesPage,
+    VouchergamesPage
   ],
   imports: [
     IonicPageModule.forChild(VouchergamesPage),
   ],
+
 })
 export class VouchergamesPageModule {}

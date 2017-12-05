@@ -1,27 +1,61 @@
 page-home {
-
-.butcol{
+    ion-content{
+        background: #1e5799;
+        background: -moz-linear-gradient(top, #1e5799 0%, #47b48a 0%, #00ade7 100%, #2989d8 100%);
+        background: -webkit-linear-gradient(top, #1e5799 0%,#47b48a 0%,#00ade7 100%,#2989d8 100%);
+        background: linear-gradient(to bottom, #1e5799 0%,#47b48a 0%,#00ade7 100%,#2989d8 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#2989d8',GradientType=0 );
+    }
+    .butcol{
+        
+        height: auto;
+    }
     
-    height: auto;
-}
-
-.colbut{
-    border-style: solid;
-    border-width: 1px;
-    border-color: #dd0000;
-    border-radius: 25px;
-}
-
-.butcolmenu{
+    .colbut{
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 25px;
+        background: white;
+    }
     
-    height: auto;
+    .butcolmenu{
+          
+   height:100%;
+   display: flex;
+   justify-content: center; /* align items horizontally (in this case) */
+   align-items: center;  
+   border-radius: 50%;
+   background: white;
+   padding: 15px; 
+   margin:5px;
+    }
+    
+    .colbutmenu{
+        max-height: 100%;
+    }
+    
+.imgbutton{
+    display: inline-block;
+    height:100%; 
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
-.colbutmenu{
-    height: auto;
-}
+.container{
+    display: flex;
+    justify-content: center; /* align items horizontally (in this case) */
+    align-items: center;     /* align items vertically (in this case) */
+    height: 19%;
+    width: 100%;
 
-.headermenu{
-    color: #dd0000
+}
+.logo{
+    display: flex;
+    justify-content: center; /* align items horizontally (in this case) */
+    align-items: center;     /* align items vertically (in this case) */
+    height: 1%;
+    padding-top: 10px;
+    padding-bottom:10px;
 }
 }

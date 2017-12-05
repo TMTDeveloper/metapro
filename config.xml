@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Metapro</name>
-    <description>Metapro Mobile Banking</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="id.yapay.co" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>YapaY</name>
+    <description>YapaY Mobile Payment</description>
+    <author email="zenhuwmank@gmail.com" href="http://x-pay.id/">YapaY Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -23,26 +23,27 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="5000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/icon/metapro_logo.png" />
-        <icon density="mdpi" src="resources/android/icon/metapro_logo.png" />
-        <icon density="hdpi" src="resources/android/icon/metapro_logo.png" />
-        <icon density="xhdpi" src="resources/android/icon/metapro_logo.png" />
-        <icon density="xxhdpi" src="resources/android/icon/metapro_logo.png" />
-        <icon density="xxxhdpi" src="resources/android/icon/metapro_logo.png" />
+        <icon density="ldpi" src="resources/android/icon/YP72x72px.png" />
+        <icon density="mdpi" src="resources/android/icon/YP72x72px.png" />
+        <icon density="hdpi" src="resources/android/icon/YP72x72px.png" />
+        <icon density="xhdpi" src="resources/android/icon/YP72x72px.png" />
+        <icon density="xxhdpi" src="resources/android/icon/YP72x72px.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/YP72x72px.png" />
         <splash density="land-ldpi" src="resources/android/splash/META2.png" />
         <splash density="land-mdpi" src="resources/android/splash/META2.png" />
         <splash density="land-hdpi" src="resources/android/splash/META2.png" />
         <splash density="land-xhdpi" src="resources/android/splash/META2.png" />
         <splash density="land-xxhdpi" src="resources/android/splash/META2.png" />
         <splash density="land-xxxhdpi" src="resources/android/splash/META2.png" />
-        <splash density="port-ldpi" src="resources/android/splash/META2.png" />
-        <splash density="port-mdpi" src="resources/android/splash/META2.png" />
-        <splash density="port-hdpi" src="resources/android/splash/META2.png" />
-        <splash density="port-xhdpi" src="resources/android/splash/META2.png" />
-        <splash density="port-xxhdpi" src="resources/android/splash/META2.png" />
-        <splash density="port-xxxhdpi" src="resources/android/splash/META2.png" />
+        <splash density="port-ldpi" src="resources/android/splash/ldpi_200x320px.png" />
+        <splash density="port-mdpi" src="resources/android/splash/mdpi_320x480px.png" />
+        <splash density="port-hdpi" src="resources/android/splash/hdpi_480x800px.png" />
+        <splash density="port-xhdpi" src="resources/android/splash/xhdpi_720px1280px.png" />
+        <splash density="port-xxhdpi" src="resources/android/splash/xxhdpi_960x1600px.png" />
+        <splash density="port-xxxhdpi" src="resources/android/splash/xxxhdpi_1280x1920px.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

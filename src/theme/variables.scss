@@ -34,9 +34,9 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #dd0000,
+  primary:    #01abe6,
   secondary:  #32db64,
-  danger:     #dd0000,
+  danger:     #01abe6,
   light:      #f4f4f4,
   dark:       #222
 );
@@ -90,13 +90,13 @@ $colors: (
 $toolbar-md-title-text-color: #fff;
 $toolbar-ios-title-text-color: #fff;
 $toolbar-wp-title-text-color: #fff;
-$toolbar-background:#dd0000;
+$toolbar-background:#01abe6;
 
-$tabs-md-tab-color-active:  #dd0000;
-$tabs-ios-tab-color-active:  #dd0000;
+$tabs-md-tab-color-active:  #01abe6;
+$tabs-ios-tab-color-active:  #01abe6;
 
-$text-input-highlight-color-valid:#dd0000;
-$text-input-highlight-color-invalid:#dd0000;
+$text-input-highlight-color-valid:#01abe6;
+$text-input-highlight-color-invalid:#01abe6;
 
 $range-md-bar-background-color:#a8a8a8;
 $range-md-bar-height:3px;

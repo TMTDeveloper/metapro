@@ -71,12 +71,14 @@ export class PulsapaketdataPage {
         xusername: this.authInfo.username,
         xaction: this.pulsapaket,
         xtype: this.pulsapaket,
-        xvendorcode: this.vendordata[vendor].vendorCode
+        xvendorcode: this.vendordata[vendor].vendorCode,
+        xpulsatype: this.pulsapaket=='PULSA'? 'P':'D'
       }
       var query = "";
       for (let key in params) {
         query += encodeURIComponent(key) + "=" + encodeURIComponent(params[key]) + "&";
       }
+      console.log(query)
       this.httpreq.postreq("semstvendorpulsa?", query)
         .subscribe((response) => {
             if (response.STATUS == "OK" && response.DATA.length !== 0) {
@@ -144,14 +146,16 @@ export class PulsapaketdataPage {
       xtoken: this.authInfo.token,
       xusername: this.authInfo.username,
       xaction: 'vendor',
-      xtype: this.pulsapaket
+      xtype: 'PULSA'
     }
     var query = "";
     for (let key in params) {
       query += encodeURIComponent(key) + "=" + encodeURIComponent(params[key]) + "&";
     }
+    console.log(query);
     this.httpreq.postreq("semstvendorpulsa?", query)
       .subscribe((response) => {
+        console.log(response);
           if (response.STATUS == "OK") {
             this.vendordata = response.DATA;
             this.getVendorDetail();
@@ -225,9 +229,7 @@ export class PulsapaketdataPage {
   inputCheck() {
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-
-
-    if (this.handphoneno == '' || this.selecteddetail == undefined) {
+    if (this.handphoneno == '' || this.selecteddetail == undefined || this.selecteddetail.vendorCode!==this.selectedvendor) {
       this.showalert2("Harap Isi Nomor HP dan Pilihan Nominal");
     } else if (this.handphoneno !== '' && this.selecteddetail !== undefined) {
       
