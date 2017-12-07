@@ -5,16 +5,32 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  
-    <ion-navbar>
-      <ion-title>Multi Payment</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content>
-  
-    <iframe align="center" height="100%" width="100%" src="https://cigist.github.io/metapro/multipayment.html" name="PULSA"></iframe>
-  </ion-content>
-  
+
+  <ion-navbar>
+    <ion-title>Multi Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Jenis Payment</ion-label>
+      <ion-select [(ngModel)]="selecteddetail" interface="popover" style=" max-width: 100% !important;">
+        <div *ngFor="let data of paymenttype">
+          <ion-option [value]="data">{{data.paymentdesc}}</ion-option>
+        </div>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label inline>No Payment</ion-label>
+      <ion-input placeholder="123456789" type="text" [(ngModel)]='paymentno'>
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block (click)="inputCheck()">SUBMIT</button>
+  </div>
+</ion-content>

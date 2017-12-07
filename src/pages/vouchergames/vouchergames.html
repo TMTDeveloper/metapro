@@ -26,7 +26,7 @@
      <ion-item>
           <ion-label>Voucher</ion-label>
           <ion-select style=" max-width: 100% !important;" [(ngModel)]="selectedvendor" interface="popover">
-            <div *ngFor="let data of vendordata| sortgrid:'vendorName'; let i = index">
+            <div *ngFor="let data of vendordata">
               <ion-option [value]="data.vendorCode">{{data.vendorName}}</ion-option>
             </div>
           </ion-select>

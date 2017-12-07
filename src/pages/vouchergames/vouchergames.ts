@@ -179,12 +179,19 @@ export class VouchergamesPage {
     }
   
     submitPulsa() {
+      var paramsxpay={
+        xuid:'XPM1760832',
+        xpass:'root',
+        xprodukcode: this.selecteddetail.pulsaCode,
+        xnomertelepon: this.handphoneno,
+        xref1:'tes'
+      }
       var paramspulsa = {
         xtoken: this.authInfo.token,
         xusername: this.authInfo.username,
         xaccountnumber: this.authInfo.accountno,
         xpin: this.pin,
-        xpulsacode: this.selecteddetail.pulsacode,
+        xpulsacode: this.selecteddetail.pulsaCode,
         xnominal: this.selecteddetail.price,
         xphonenumber: this.handphoneno,
         xlocation: this.authInfo.location,
@@ -195,7 +202,7 @@ export class VouchergamesPage {
         xusername: this.authInfo.username,
         xaccountnumber: this.authInfo.accountno,
         xpin: this.pin,
-        xpaketdata: this.selecteddetail.pulsacode,
+        xpaketdata: this.selecteddetail.pulsaCode,
         xnominal: this.selecteddetail.price,
         xphonenumber: this.handphoneno,
         xlocation: this.authInfo.location,
@@ -206,26 +213,39 @@ export class VouchergamesPage {
         query += encodeURIComponent(key) + "=" + encodeURIComponent(
           this.game == 'PULSA' ? paramspulsa[key] : paramspaket[key]) + "&";
       }
-      this.httpreq.postreq(this.game == 'PULSA' ? "setrnpulsa?" : "setrnpaketdata?", query)
-        .subscribe((response) => {
-  
-            if (response.STATUS == "OK") {
-  
-              this.loading.dismiss();
-              this.showalert(response.MESSAGE);
-            } else if (response.STATUS != "OK") {
-  
-              this.loading.dismiss();
-              this.showalert(response.MESSAGE);
-            }
-          }, (error) => {
-  
-            this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+      var queryxpay="";
+      for(let key in paramsxpay){
+        queryxpay+= encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key])+"&";
+      }
+      this.httpreq.postreq("setrnpulsa?", query)
+      .subscribe((response) => {
+
+          if (response.STATUS == "OK") {
+            this.httpreq.postreqxpay("sevouchergame?",queryxpay).subscribe((response)=>{
+              console.log(JSON.stringify(response));
+              if(response.STATUS=="OK"){
+            this.loading.dismiss();
+                this.showalert(JSON.stringify(response));
+              } else if (response.STATUS!="OK"){
+            this.loading.dismiss();
+            this.showalert("PEMBELIAN VOUCHER GAME GAGAL");
+              }
+            },(error)=>{
+              this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+            })
+            
+          } else if (response.STATUS != "OK") {
+
+            this.loading.dismiss();
+            this.showalert(response.MESSAGE);
           }
-  
-        )
-    }
-  
+        }, (error) => {
+
+          this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+        }
+
+      )
+  }
     inputCheck() {
       var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   

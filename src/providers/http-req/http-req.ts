@@ -20,6 +20,7 @@ import {
 */
 @Injectable()
 export class HttpReqProvider {
+  baseurlxpay:string='http://202.158.20.141:5001/xpay-service/api/'
   baseurl: string = 'http://202.158.20.141:5001/semetapro/api/'
   constructor(public http: Http) {}
 
@@ -42,6 +43,17 @@ export class HttpReqProvider {
       headers: headers
     });
     let obs = this.http.post(this.baseurl + url, body,options).map(res => res.json())
+    return obs;
+  };
+
+  postreqxpay(url: string, body) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+    let obs = this.http.get(this.baseurlxpay + url+body).map(res => res.json())
     return obs;
   };
 }

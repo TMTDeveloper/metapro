@@ -18,6 +18,7 @@ import {
 import {
   AuthSingletonProvider
 } from '../../providers/auth-singleton/auth-singleton';
+import { stringify } from '@angular/core/src/util';
 
 /**
  * Generated class for the PulsapaketdataPage page.
@@ -179,12 +180,19 @@ export class PulsapaketdataPage {
   }
 
   submitPulsa() {
+    var paramsxpay={
+      xuid:'XPM1760832',
+      xpass:'root',
+      xprodukcode: this.selecteddetail.pulsaCode,
+      xnomertelepon: this.handphoneno,
+      xref1:'tes'
+    }
     var paramspulsa = {
       xtoken: this.authInfo.token,
       xusername: this.authInfo.username,
       xaccountnumber: this.authInfo.accountno,
       xpin: this.pin,
-      xpulsacode: this.selecteddetail.pulsacode,
+      xpulsacode: this.selecteddetail.pulsaCode,
       xnominal: this.selecteddetail.price,
       xphonenumber: this.handphoneno,
       xlocation: this.authInfo.location,
@@ -195,7 +203,7 @@ export class PulsapaketdataPage {
       xusername: this.authInfo.username,
       xaccountnumber: this.authInfo.accountno,
       xpin: this.pin,
-      xpaketdata: this.selecteddetail.pulsacode,
+      xpaketdata: this.selecteddetail.pulsaCode,
       xnominal: this.selecteddetail.price,
       xphonenumber: this.handphoneno,
       xlocation: this.authInfo.location,
@@ -206,13 +214,30 @@ export class PulsapaketdataPage {
       query += encodeURIComponent(key) + "=" + encodeURIComponent(
         this.pulsapaket == 'PULSA' ? paramspulsa[key] : paramspaket[key]) + "&";
     }
+    var queryxpay="";
+    for(let key in paramsxpay){
+      queryxpay+= encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key])+"&";
+    }
+    console.log(JSON.stringify(this.selecteddetail))
+    console.log(queryxpay)
+    console.log(query)
     this.httpreq.postreq(this.pulsapaket == 'PULSA' ? "setrnpulsa?" : "setrnpaketdata?", query)
       .subscribe((response) => {
 
           if (response.STATUS == "OK") {
-
+            this.httpreq.postreqxpay("setopuppulsa?",queryxpay).subscribe((response)=>{
+              console.log(JSON.stringify(response));
+              if(response.STATUS=="OK"){
             this.loading.dismiss();
-            this.showalert(response.MESSAGE);
+                this.showalert(response.DATA[0].keterangan);
+              } else if (response.STATUS!="OK"){
+            this.loading.dismiss();
+            this.showalert("PENGISIAN PULSA GAGAL");
+              }
+            },(error)=>{
+              this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+            })
+            
           } else if (response.STATUS != "OK") {
 
             this.loading.dismiss();
