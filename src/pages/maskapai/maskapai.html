@@ -13,6 +13,35 @@
 </ion-header>
 
 
-<ion-content>
-  <iframe align="center" height="100%" width="100%" src="https://cigist.github.io/metapro/maskapai.html" name="PULSA"></iframe>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Origin</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+<ion-item>
+      <ion-label stacked>Destination</ion-label>
+      <ion-input (click)="openModal()" ></ion-input>
+    </ion-item>
+  
+
+    <ion-item>
+      <ion-label stacked>Departure Date</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Passanger</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Seat Class</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+
+
 </ion-content>

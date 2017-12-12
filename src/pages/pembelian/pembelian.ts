@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {MaskapaiPage} from '../maskapai/maskapai'
 
 /**
  * Generated class for the PembelianPage page.

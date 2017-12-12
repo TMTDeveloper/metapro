@@ -32,6 +32,7 @@ from '../pipes/sortgrid/sortgrid';
 import { DatePicker } from '@ionic-native/date-picker';
 import {NotSame} from '../pages/changepass/changepass';
 import { Geolocation } from '@ionic-native/geolocation';
+import {MaskapaiPageModule} from '../pages/maskapai/maskapai.module'
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),HttpModule,QRCodeModule
+    IonicModule.forRoot(MyApp),HttpModule,QRCodeModule,MaskapaiPageModule
 
    
   ],

@@ -18,7 +18,9 @@ import {
 import {
   AuthSingletonProvider
 } from '../../providers/auth-singleton/auth-singleton';
-import { stringify } from '@angular/core/src/util';
+import {
+  stringify
+} from '@angular/core/src/util';
 
 /**
  * Generated class for the PulsapaketdataPage page.
@@ -44,6 +46,8 @@ export class PulsapaketdataPage {
   doneload: boolean = false;
   handphoneno: string = '';
   pin: string = '';
+  vendorlength: number = 0;
+  vresponse: any = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private decimalPipe: DecimalPipe,
     public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController) {
@@ -63,71 +67,73 @@ export class PulsapaketdataPage {
 
   getVendorDetail() {
     var vresponse = [];
-    var vendorlength = 0;
-    for (let vendor in this.vendordata) {
-      ++vendorlength;
-      console.log(this.vendordata.length)
-      var params = {
-        xtoken: this.authInfo.token,
-        xusername: this.authInfo.username,
-        xaction: this.pulsapaket,
-        xtype: this.pulsapaket,
-        xvendorcode: this.vendordata[vendor].vendorCode,
-        xpulsatype: this.pulsapaket=='PULSA'? 'P':'D'
-      }
-      var query = "";
-      for (let key in params) {
-        query += encodeURIComponent(key) + "=" + encodeURIComponent(params[key]) + "&";
-      }
-      console.log(query)
-      this.httpreq.postreq("semstvendorpulsa?", query)
-        .subscribe((response) => {
-            if (response.STATUS == "OK" && response.DATA.length !== 0) {
-              console.log("response");
-              console.log(response.DATA);
-              vresponse[this.vendordata[vendor].vendorCode] = response.DATA;
-              if (vendorlength == this.vendordata.length) {
-                this.vendordetail = vresponse;
-                this.selectedvendor = this.vendordata[0].vendorCode;
-                this.doneload = true;
-                console.log("hasilakhir")
-                console.log(this.vendordetail)
-                if (this.loading !== 'nothing') {
-                  this.loading.dismiss();
-                  this.loading = 'nothing'
+    var params = {
+      xtoken: this.authInfo.token,
+      xusername: this.authInfo.username,
+      xaction: this.pulsapaket,
+      xtype: this.pulsapaket,
+      xvendorcode: this.vendordata[this.vendorlength].vendorCode,
+      xpulsatype: this.pulsapaket == 'PULSA' ? 'P' : 'D'
+    }
+    var query = "";
+    for (let key in params) {
+      query += encodeURIComponent(key) + "=" + encodeURIComponent(params[key]) + "&";
 
-                }
-              }
-
-            } else if (response.STATUS == "OK" && response.DATA.length == 0) {
+    }
+    console.log(query)
+    this.httpreq.postreq("semstvendorpulsa?", query)
+      .subscribe((response) => {
+          if (response.STATUS == "OK" && response.DATA.length !== 0) {
+            // console.log("response");
+            // console.log(response.DATA);
+            // vresponse[this.vendordata[vendor].vendorCode] = response.DATA;
+            let responsedata = this.vresponse;
+            responsedata[response.DATA[0].vendorCode] = response.DATA;
+            this.vresponse = responsedata;
+            console.log(JSON.stringify(this.vendordata[this.vendorlength].vendorCode))
+            console.log(this.vresponse)
+            this.vendorlength++;
+            if (this.vendorlength == this.vendordata.length) {
+              this.vendordetail = this.vresponse;
               this.selectedvendor = this.vendordata[0].vendorCode;
+              this.doneload = true;
+              console.log("hasilakhir")
+              console.log(this.vendordetail)
               if (this.loading !== 'nothing') {
                 this.loading.dismiss();
                 this.loading = 'nothing'
 
               }
+              return;
             }
-            if (response.STATUS != "OK") {
-              if (this.loading !== 'nothing') {
-                this.loading.dismiss();
-                this.loading = 'nothing'
+            this.getVendorDetail();
+          } else if (response.STATUS == "OK" && response.DATA.length == 0) {
+            this.selectedvendor = this.vendordata[0].vendorCode;
 
-              }
-              this.showalert(response.MESSAGE);
-            }
-
-          }, (error) => {
+            ++this.vendorlength;
+            this.getVendorDetail();
+          }
+          if (response.STATUS != "OK") {
             if (this.loading !== 'nothing') {
               this.loading.dismiss();
               this.loading = 'nothing'
 
             }
-
-            this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+            this.showalert(response.MESSAGE);
           }
 
-        )
-    }
+        }, (error) => {
+          if (this.loading !== 'nothing') {
+            this.loading.dismiss();
+            this.loading = 'nothing'
+
+          }
+
+          this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+        }
+
+      )
+
 
   }
 
@@ -156,14 +162,16 @@ export class PulsapaketdataPage {
     console.log(query);
     this.httpreq.postreq("semstvendorpulsa?", query)
       .subscribe((response) => {
-        console.log(response);
+          console.log(response);
           if (response.STATUS == "OK") {
             this.vendordata = response.DATA;
-            this.getVendorDetail();
             console.log(this.vendordata);
-
-
-
+            for (let vendor in this.vendordata) {
+              if (this.vendordata[vendor].vendorCode == "BOLT" && this.pulsapaket == 'PULSA') {
+                this.vendordata.splice(vendor, 1)
+              }
+            }
+            this.getVendorDetail();
           } else if (response.STATUS != "OK") {
             this.loading.dismiss();
             this.showalert(response.MESSAGE);
@@ -180,12 +188,12 @@ export class PulsapaketdataPage {
   }
 
   submitPulsa() {
-    var paramsxpay={
-      xuid:'XPM1760832',
-      xpass:'root',
+    var paramsxpay = {
+      xuid: 'XPM1760832',
+      xpass: 'root',
       xprodukcode: this.selecteddetail.pulsaCode,
       xnomertelepon: this.handphoneno,
-      xref1:'tes'
+      xref1: 'tes'
     }
     var paramspulsa = {
       xtoken: this.authInfo.token,
@@ -196,7 +204,7 @@ export class PulsapaketdataPage {
       xnominal: this.selecteddetail.price,
       xphonenumber: this.handphoneno,
       xlocation: this.authInfo.location,
-      xtranfrom:'M'
+      xtranfrom: 'M'
     }
     var paramspaket = {
       xtoken: this.authInfo.token,
@@ -207,16 +215,16 @@ export class PulsapaketdataPage {
       xnominal: this.selecteddetail.price,
       xphonenumber: this.handphoneno,
       xlocation: this.authInfo.location,
-      xtranfrom:'M'
+      xtranfrom: 'M'
     }
     var query = "";
     for (let key in this.pulsapaket == 'PULSA' ? paramspulsa : paramspaket) {
       query += encodeURIComponent(key) + "=" + encodeURIComponent(
         this.pulsapaket == 'PULSA' ? paramspulsa[key] : paramspaket[key]) + "&";
     }
-    var queryxpay="";
-    for(let key in paramsxpay){
-      queryxpay+= encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key])+"&";
+    var queryxpay = "";
+    for (let key in paramsxpay) {
+      queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
     }
     console.log(JSON.stringify(this.selecteddetail))
     console.log(queryxpay)
@@ -225,19 +233,19 @@ export class PulsapaketdataPage {
       .subscribe((response) => {
 
           if (response.STATUS == "OK") {
-            this.httpreq.postreqxpay("setopuppulsa?",queryxpay).subscribe((response)=>{
+            this.httpreq.postreqxpay("setopuppulsa?", queryxpay).subscribe((response) => {
               console.log(JSON.stringify(response));
-              if(response.STATUS=="OK"){
-            this.loading.dismiss();
+              if (response.STATUS == "OK") {
+                this.loading.dismiss();
                 this.showalert(response.DATA[0].keterangan);
-              } else if (response.STATUS!="OK"){
-            this.loading.dismiss();
-            this.showalert("PENGISIAN PULSA GAGAL");
+              } else if (response.STATUS != "OK") {
+                this.loading.dismiss();
+                this.showalert("PENGISIAN PULSA GAGAL");
               }
-            },(error)=>{
+            }, (error) => {
               this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
             })
-            
+
           } else if (response.STATUS != "OK") {
 
             this.loading.dismiss();
@@ -254,10 +262,10 @@ export class PulsapaketdataPage {
   inputCheck() {
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-    if (this.handphoneno == '' || this.selecteddetail == undefined || this.selecteddetail.vendorCode!==this.selectedvendor) {
+    if (this.handphoneno == '' || this.selecteddetail == undefined || this.selecteddetail.vendorCode !== this.selectedvendor) {
       this.showalert2("Harap Isi Nomor HP dan Pilihan Nominal");
     } else if (this.handphoneno !== '' && this.selecteddetail !== undefined) {
-      
+
       this.showPrompt();
 
     }
@@ -340,7 +348,7 @@ export class PulsapaketdataPage {
           handler: data => {
             this.pin = data.PIN;
             this.showloading();
-            this.loading.present();      
+            this.loading.present();
             this.submitPulsa();
           }
         },
