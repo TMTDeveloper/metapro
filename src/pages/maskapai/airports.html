@@ -12,12 +12,27 @@
            name="md-close" ></ion-icon>
           </button>
         </ion-buttons>
-        <ion-title>Informasi Saldo</ion-title>
+        <ion-title>Airports</ion-title>
     </ion-navbar>
     </ion-header>
     
     
     <ion-content padding>
-    
+        <ion-item-divider>
+            Item Divider
+            <button ion-button item-end>Button</button>
+          </ion-item-divider>
+      <div *ngFor="let air of data">
+      <button ion-item *ngIf="air.group=='Domestik'">
+        {{air.name}}
+      </button>
+    </div>
+
+    <div *ngFor="let air of data">
+        <button ion-item>
+          {{air.name}}
+        </button>
+      </div>
+
     </ion-content>
     

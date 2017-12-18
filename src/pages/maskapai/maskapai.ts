@@ -26,8 +26,8 @@ airports: any=
     console.log(this.airports.data)
   }
 
-  openModal(){
-    let myModal= this.modalCtrl.create(AirportsPage);
+  openModal(obj){
+    let myModal= this.modalCtrl.create(AirportsPage,obj);
     myModal.present();
   }
 }
@@ -42,6 +42,7 @@ export class AirportsPage{
 
   }
 
+  data: any[]=this.navParams.get('data');
   closeModal(){
     this.viewCtrl.dismiss();
   }

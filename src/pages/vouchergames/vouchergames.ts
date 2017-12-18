@@ -192,7 +192,7 @@ export class VouchergamesPage {
       xpass: 'root',
       xprodukcode: this.selecteddetail.pulsaCode,
       xnomertelepon: this.handphoneno,
-      xref1: 'tes'
+      xref1: '0'
     }
     var paramspulsa = {
       xtoken: this.authInfo.token,
@@ -225,6 +225,7 @@ export class VouchergamesPage {
     for (let key in paramsxpay) {
       queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
     }
+    console.log(queryxpay)
     this.httpreq.postreq("setrnpulsa?", query)
       .subscribe((response) => {
 
@@ -233,7 +234,7 @@ export class VouchergamesPage {
               console.log(JSON.stringify(response));
               if (response.STATUS == "OK") {
                 this.loading.dismiss();
-                this.showalert(JSON.stringify(response));
+                this.showalert(response.DATA[0].keterangan);
               } else if (response.STATUS != "OK") {
                 this.loading.dismiss();
                 this.showalert("PEMBELIAN VOUCHER GAME GAGAL");
