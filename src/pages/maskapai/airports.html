@@ -5,34 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-      <ion-buttons start>
-         <button ion-button (click)="closeModal()">
-            <ion-icon 
-           name="md-close" ></ion-icon>
-          </button>
-        </ion-buttons>
-        <ion-title>Airports</ion-title>
-    </ion-navbar>
-    </ion-header>
-    
-    
-    <ion-content padding>
-        <ion-item-divider>
-            Item Divider
-            <button ion-button item-end>Button</button>
-          </ion-item-divider>
-      <div *ngFor="let air of data">
-      <button ion-item *ngIf="air.group=='Domestik'">
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="closeModal('')">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search Airports" (ionInput)="filterItems($event)"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-divider color="primary">
+      Domestic Aiports
+    </ion-item-divider>
+    <div *ngFor="let air of data | orderBy:['name']; let i = index">
+      <button ion-item *ngIf="air.group=='Domestik'" (click)="closeModal(air.name)">
         {{air.name}}
       </button>
     </div>
-
+    <ion-item-divider color="primary">
+      International Airports
+    </ion-item-divider>
     <div *ngFor="let air of data">
-        <button ion-item>
-          {{air.name}}
-        </button>
-      </div>
+      <button ion-item *ngIf="air.group!=='Domestik'">
+        {{air.name}}
+      </button>
+    </div>
+  </ion-list>
 
-    </ion-content>
-    
+
+</ion-content>
