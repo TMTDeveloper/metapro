@@ -16,21 +16,21 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label>Jenis Payment</ion-label>
-      <ion-select [(ngModel)]="selecteddetail" interface="popover" style=" max-width: 100% !important;">
-        <div *ngFor="let data of paymenttype">
-          <ion-option [value]="data">{{data.paymentdesc}}</ion-option>
+      <ion-label stacked>Jenis Payment</ion-label>
+      <ion-select [(ngModel)]="selecteddetail" interface="alert" style=" max-width: 100% !important;">
+        <div *ngFor="let data of datapayment">
+          <ion-option [value]="data">{{data.descritprion}}</ion-option>
         </div>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label inline>No Payment</ion-label>
+      <ion-label stacked>No Payment</ion-label>
       <ion-input placeholder="123456789" type="text" [(ngModel)]='paymentno'>
       </ion-input>
     </ion-item>
   </ion-list>
 
-  <div padding>
+  <div>
     <button ion-button color="primary" block (click)="inputCheck()">SUBMIT</button>
   </div>
 </ion-content>

@@ -10,7 +10,9 @@ import {
   NavParams,
   MenuController,
   LoadingController,
-  AlertController
+  AlertController,
+  ModalController,
+  ViewController
 } from 'ionic-angular';
 import {
   HttpReqProvider
@@ -38,311 +40,44 @@ export class MultipaymentPage {
   selecteddetail: any;
   paymentno: string = '';
 
-  paymenttype: any[] = [{
-      "paymentcode": "PLNPASCH",
-      "paymentdesc": "PLN Bulanan"
-    }, {
-      "paymentcode": "PLNPRAH",
-      "paymentdesc": "PLN Token"
-    }, {
-      "paymentcode": "ASRBPJSKS",
-      "paymentdesc": "BPJS Kesehatan"
-    }, {
-      "paymentcode": "PGN",
-      "paymentdesc": "PGN"
-    }, {
-      "paymentcode": "SPEEDY",
-      "paymentdesc": "TELKOM/INDIHOME"
-    }, {
-      "paymentcode": "SPEEDY",
-      "paymentdesc": "SPEEDY"
-    }, {
-      "paymentcode": "TVTLKMV",
-      "paymentdesc": "TELKOMVISION"
-    }, {
-      "paymentcode": "TVINDVS",
-      "paymentdesc": "INDOVISION"
-    }, {
-      "paymentcode": "TVINDVS",
-      "paymentdesc": "OKEVISION"
-    }, {
-      "paymentcode": "TVINDVS",
-      "paymentdesc": "TOP TV"
-    }, {
-      "paymentcode": "TVNEX",
-      "paymentdesc": "NEXMEDIA"
-    }, {
-      "paymentcode": "WAKABBDG",
-      "paymentdesc": "PDAM Bandung"
-    }, {
-      "paymentcode": "WABJN",
-      "paymentdesc": "PDAM Kab. Bojonegoro"
-    }, {
-      "paymentcode": "WABONDO",
-      "paymentdesc": "PDAM Kab. Bondowoso"
-    }, {
-      "paymentcode": "WAJMBR",
-      "paymentdesc": "PDAM Kab. Jember"
-    }, {
-      "paymentcode": "WABGK",
-      "paymentdesc": "PDAM Kab. Bangkalan"
-    }, {
-      "paymentcode": "WAMJK",
-      "paymentdesc": "PDAM Kab. Mojokerto"
-    }, {
-      "paymentcode": "WASDA",
-      "paymentdesc": "PDAM Kab. Sidoarjo"
-    }, {
-      "paymentcode": "WABAL",
-      "paymentdesc": "PDAM Kab. Balangan"
-    }, {
-      "paymentcode": "WATAPIN",
-      "paymentdesc": "PDAM Kab. Tapin"
-    }, {
-      "paymentcode": "WASBY",
-      "paymentdesc": "PDAM Surabaya"
-    }, {
-      "paymentcode": "WAJAMBI",
-      "paymentdesc": "PDAM Jambi"
-    }
-    // ,{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Ternate "
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Cilacap"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Bekasi"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Lampung"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Situbondo"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM PALYJA"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM PALEMBANG"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Banjarmasin"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Sleman"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Balikpapan"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Grobongan"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Malang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Makassar"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Pontianak"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Muara enim"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Semarang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Kendal"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Banyumas"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Mataram"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Boyolali"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Brebes"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Buleleng"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Kebumen"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Pekalongan"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Probolinggo"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Semarang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Sragen"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Wonogiri"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Wonosobo"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Lombok Tengah"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Purbalingga"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Rembang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Kranganyar"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Madiun"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Salatiga"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Surakarta"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Purworejo"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Bogor"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Bekasi"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Samarinda"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Padang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Denpasar"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Tangerang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM AETRA Tangerang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Bogor, Cibinong, Depok"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Bengkulu"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM ATB Batam"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Banda Aceh"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Aceh Besar"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Aceh Jaya"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Bukit Tinggi"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Muara Bungo"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Jayapura"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Bontang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Ngawi"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Malang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Gresik"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Yogyakarta"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Pasuruan"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Sukabumi"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Cirebon"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Tasikmalaya"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Garut"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Ciamis"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Cianjur"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Cirebon"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Indramayu"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Karawang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Kuningan"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Subang"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Tarakan"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Palu"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kab. Gunung Kidul"
-    // },{
-    //   "paymentcode":"PDAM",
-    //   "paymentdesc":"PDAM Kota Palopo"
-    // }
-  ]
 
+  databill: any;
   authInfo: any;
   pin: string = '';
   loading: any;
+  datapayment: [{
+    "trnType": string,
+    "providerId": string,
+    "productType": string,
+    "productId": string,
+    "distriPrice": number,
+    "distriAdminFee": number,
+    "distriFee": number,
+    "descritprion": string
+  }];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private decimalPipe: DecimalPipe,
-    public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController) {
+    public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController, public modalCtrl: ModalController) {
     this.authInfo = this.auth.authInfo;
-
+    this.getData('T01');
   }
+
+  openModal(response) {
+    let myModal = this.modalCtrl.create(ConfirmationPage, response);
+    myModal.onDidDismiss(data => {
+      if (data.status == true) {
+        this.payBill(data.data)
+      }
+    })
+    myModal.present();
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MultipaymentPage');
-    console.log(this.paymenttype[0].paymentcode);
+
+
   }
 
   inputCheck() {
@@ -354,23 +89,103 @@ export class MultipaymentPage {
 
   }
 
-  submitTagihan() {
+  getData(trntype: string) {
+    if (trntype == 'T01') {
+      this.showloading();
+      this.loading.present();
+    }
     var paramsxpay = {
       xuid: 'XPM1760832',
       xpass: 'root',
-      xprodukcode: this.selecteddetail.pulsaCode,
-      xidpelanggan1: this.paymentno,
-      xidpelanggan2: this.paymentno,
-      xidpelanggan3: this.paymentno,
-      xref1: 'tes'
+      xtrntype: trntype
     }
     var queryxpay = "";
     for (let key in paramsxpay) {
       queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
     }
-    this.httpreq.postreqxpay("secektagihan?", queryxpay).subscribe((response) => {
+    this.httpreq.postreqxpay("xpay.ppob/trntype?", queryxpay).subscribe((response) => {
+      if (response.STATUS == 'OK' && trntype == 'T01') {
+        this.datapayment = response.DATA;
+        this.getData('T02');
+      } else if (response.STATUS == 'OK' && trntype == 'T02') {
+        console.log(response.DATA)
+        this.datapayment.push(response.DATA[0]);
+        console.log(this.datapayment)
+        this.loading.dismiss();
+      }
+      console.log(JSON.stringify(response))
+    }, (error) => {
       this.loading.dismiss();
-      this.showalert(JSON.stringify(response));
+      this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+    })
+  }
+
+  payBill(data) {
+    console.log("iwashere")
+    this.showloading();
+    this.loading.present();
+    var paramsxpay = {
+      xuid: 'XPM1760832',
+      xpass: 'root',
+      xproductcode: data[0].kodeProduk,
+      xidpelanggan1: data[0].idpelanggan1,
+      xidpelanggan2: data[0].idpelanggan2,
+      xidpelanggan3: data[0].idpelanggan3,
+      xnominal: data[0].nominal,
+      xref1: data[0].ref1,
+      xref2: data[0].ref2,
+      xref3: data[0].ref3
+    }
+    var queryxpay = "";
+    for (let key in paramsxpay) {
+      queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
+    }
+    this.httpreq.postreqxpay("xpay.payment/payment?", queryxpay).subscribe((response) => {
+      if(response.STATUS=='OK'){
+this.openReceipt(response);
+        console.log(JSON.stringify(response))
+              this.loading.dismiss();
+      }else if(response.STATUS!=='OK'){
+        this.showalert(response.MESSAGE)
+      }
+    }, (error) => {
+      this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
+    })
+  }
+
+  openReceipt(receipt){
+    let myModal = this.modalCtrl.create(ReceiptPage, receipt);
+    myModal.onDidDismiss(data => {
+      if (data.status == true) {
+        this.payBill(data.data)
+      }
+    })
+    myModal.present();
+  }
+
+  submitTagihan() {
+    var paramsxpay = {
+      xuid: 'XPM1760832',
+      xpass: 'root',
+      xproductcode: this.selecteddetail.productId,
+      xidpelanggan1: this.paymentno,
+      xidpelanggan2: this.paymentno,
+      xidpelanggan3: this.paymentno,
+    }
+    var queryxpay = "";
+    for (let key in paramsxpay) {
+      queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
+    }
+    this.httpreq.postreqxpay("xpay.payment/inquery?", queryxpay).subscribe((response) => {
+      if(response.STATUS=='OK'){
+        console.log(JSON.stringify(response))
+        this.openModal(response);
+        this.loading.dismiss();
+      }else if(response.STATUS!=='OK'){
+        this.showalert(response.MESSAGE)
+      }
+  
+
     }, (error) => {
       this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
     })
@@ -441,3 +256,50 @@ export class MultipaymentPage {
     });
   }
 }
+
+@Component({
+  templateUrl: 'confirmation.html'
+})
+export class ConfirmationPage {
+  data: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    this.data = this.navParams.get('DATA')
+    console.log(this.data)
+  }
+  payBill() {
+    this.viewCtrl.dismiss({
+      status: true,
+      data: this.data
+    });
+  }
+  closeModal(name) {
+    this.viewCtrl.dismiss({
+      status: false,
+      data: undefined
+    });
+  }
+}
+
+@Component({
+  templateUrl: 'receipt.html'
+})
+export class ReceiptPage {
+  data: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    this.data = this.navParams.get('DATA')
+    console.log(this.data)
+  }
+  payBill() {
+    this.viewCtrl.dismiss({
+      status: true,
+      data: this.data
+    });
+  }
+  closeModal(name) {
+    this.viewCtrl.dismiss({
+      status: false,
+      data: undefined
+    });
+  }
+}
+
