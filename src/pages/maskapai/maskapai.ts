@@ -44,7 +44,7 @@ export class MaskapaiPage {
       options: [{
           text: '1 Adult',
           value: '1'
-        },
+        }, 
         {
           text: '2 Adult',
           value: '2'
