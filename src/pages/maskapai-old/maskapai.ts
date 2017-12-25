@@ -1555,7 +1555,7 @@ export class AirportsPage {
   }
 
   closeModal(name) {
-    this.viewCtrl.dismiss(name == '' ? '' : name);
+    this.viewCtrl.dismiss(name==''?'':name);
   }
 
   filterItems(ev: any) {

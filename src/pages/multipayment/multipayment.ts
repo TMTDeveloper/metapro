@@ -129,8 +129,8 @@ export class MultipaymentPage {
       xpass: 'root',
       xproductcode: data[0].kodeProduk,
       xidpelanggan1: data[0].idpelanggan1,
-      xidpelanggan2: data[0].idpelanggan2,
-      xidpelanggan3: data[0].idpelanggan3,
+      xidpelanggan2: data[0].idpelanggan1,
+      xidpelanggan3: '',
       xnominal: data[0].nominal,
       xref1: data[0].ref1,
       xref2: data[0].ref2,
@@ -141,11 +141,11 @@ export class MultipaymentPage {
       queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
     }
     this.httpreq.postreqxpay("xpay.payment/payment?", queryxpay).subscribe((response) => {
-      if(response.STATUS=='OK'){
-this.openReceipt(response);
+      if (response.STATUS == 'OK') {
+        this.openReceipt(response);
         console.log(JSON.stringify(response))
-              this.loading.dismiss();
-      }else if(response.STATUS!=='OK'){
+        this.loading.dismiss();
+      } else if (response.STATUS !== 'OK') {
         this.showalert(response.MESSAGE)
       }
     }, (error) => {
@@ -153,7 +153,7 @@ this.openReceipt(response);
     })
   }
 
-  openReceipt(receipt){
+  openReceipt(receipt) {
     let myModal = this.modalCtrl.create(ReceiptPage, receipt);
     myModal.onDidDismiss(data => {
       if (data.status == true) {
@@ -177,14 +177,14 @@ this.openReceipt(response);
       queryxpay += encodeURIComponent(key) + "=" + encodeURIComponent(paramsxpay[key]) + "&";
     }
     this.httpreq.postreqxpay("xpay.payment/inquery?", queryxpay).subscribe((response) => {
-      if(response.STATUS=='OK'){
+      if (response.STATUS == 'OK') {
         console.log(JSON.stringify(response))
         this.openModal(response);
         this.loading.dismiss();
-      }else if(response.STATUS!=='OK'){
+      } else if (response.STATUS !== 'OK') {
         this.showalert(response.MESSAGE)
       }
-  
+
 
     }, (error) => {
       this.showalert("KONEKSI BERMASALAH, HARAP ULANGI BEBERAPA SAAT LAGI");
@@ -301,5 +301,4 @@ export class ReceiptPage {
       data: undefined
     });
   }
-}
-
+} 
