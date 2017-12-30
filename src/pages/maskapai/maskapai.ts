@@ -28,6 +28,16 @@ export class MaskapaiPage {
 
   airports: any;
 
+  datasearch: any ={
+    arrival:'',
+    departure:'',
+    datedeparture:moment().format("YYYY-MM-DD"),
+    datereturn:moment().format("YYYY-MM-DD"),
+    adult:0,
+    infant:0,
+    child:0
+  } 
+
   origin: string = '';
   destination: string = '';
   roundtrip: boolean = false;
@@ -35,7 +45,8 @@ export class MaskapaiPage {
     datefrom: moment().format("YYYY-MM-DD"),
     dateto: moment().format("YYYY-MM-DD"),
     today: moment(new Date()).format("YYYY-MM-DD"),
-    maxdate: moment(new Date()).add(400, 'days').format("YYYY-MM-DD")
+    maxdate: moment(new Date()).add(400, 'days').format("YYYY-MM-DD"),
+    roundtrip:false
   }
   simpleColumns: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
@@ -134,10 +145,14 @@ export class MaskapaiPage {
   openModal(obj) {
     let myModal = this.modalCtrl.create(AirportsPage);
     myModal.onDidDismiss(data => {
-      obj == "origin" ? this.origin = data : this.destination = data;
+      obj == "origin" ? this.datasearch.departure = data : this.datasearch.arrival = data;
     })
     myModal.present();
   }
+
+searchflight(){
+  this.navCtrl.push(SearchPage);
+}
 
 
 }
@@ -1567,5 +1582,20 @@ export class AirportsPage {
         return item.name.toLowerCase().includes(val.toLowerCase());
       });
     }
+  }
+}
+
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar'
+
+@Component({
+  selector: 'page-search',
+  templateUrl: 'search.html'
+})
+export class SearchPage {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
+  public slimLoadingBarService: SlimLoadingBarService){
+this.slimLoadingBarService.start(()=>{
+  console.log('hehehe');
+})
   }
 }
