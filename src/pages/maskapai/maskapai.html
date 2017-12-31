@@ -18,7 +18,7 @@
         <ion-icon name="plane"></ion-icon>
       </button>
       <ion-label stacked style="color: #000;">Origin</ion-label>
-      <ion-input placeholder="Not Selected" type="text" [(ngModel)]="datasearch.departure" readonly="true"></ion-input>
+      <ion-input placeholder="Not Selected" type="text" [(ngModel)]="datasearch.departure.name" readonly="true"></ion-input>
     </button>
 
     <button ion-item tappable clear (tap)="openModal('destination')">
@@ -26,7 +26,7 @@
         <ion-icon name="ios-plane"></ion-icon>
       </button>
       <ion-label stacked style="color: #000;">Destination</ion-label>
-      <ion-input placeholder="Not Selected" type="text" [(ngModel)]="datasearch.arrival" readonly="true"></ion-input>
+      <ion-input placeholder="Not Selected" type="text" [(ngModel)]="datasearch.arrival.name" readonly="true"></ion-input>
     </button>
     <ion-grid>
       <ion-row>

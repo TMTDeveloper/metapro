@@ -6,4 +6,8 @@
   </ion-header>
   <ion-content>
     <ng2-slim-loading-bar></ng2-slim-loading-bar>
+
+    <div *ngIf="doneload">
+      {{dataflight.searchQueries.date}}
+    </div>
   </ion-content>

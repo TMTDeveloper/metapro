@@ -23,7 +23,7 @@
       Domestic Aiports
     </ion-item-divider>
     <div *ngFor="let air of data | orderBy:['name']; let i = index">
-      <button ion-item *ngIf="air.group=='Domestik'" (click)="closeModal(air.name)">
+      <button ion-item *ngIf="air.group=='Domestik'" (click)="closeModal(air)">
         {{air.name}}
       </button>
     </div>
