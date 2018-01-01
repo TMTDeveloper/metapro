@@ -34,6 +34,7 @@ import {NotSame} from '../pages/changepass/changepass';
 import { Geolocation } from '@ionic-native/geolocation';
 import {MaskapaiPageModule} from '../pages/maskapai/maskapai.module'
 import {MultipaymentPageModule} from '../pages/multipayment/multipayment.module'
+import {HotelPageModule} from '../pages/hotel/hotel.module'
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import {MultipaymentPageModule} from '../pages/multipayment/multipayment.module'
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),HttpModule,QRCodeModule,MaskapaiPageModule,MultipaymentPageModule
+    IonicModule.forRoot(MyApp),HttpModule,QRCodeModule,MaskapaiPageModule,MultipaymentPageModule,HotelPageModule
 
    
   ],
