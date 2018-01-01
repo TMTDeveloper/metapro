@@ -55,7 +55,7 @@ export class HttpReqProvider {
     let options = new RequestOptions({
       headers: headers
     });
-    let obs = this.http.post(this.baseurlxpay + url,body,options).map(res => res.json())
+    let obs = this.http.post(this.baseurlxpay + url+body,body,options).map(res => res.json())
     return obs;
   };
 }
