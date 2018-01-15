@@ -1,20 +1,31 @@
-<!--
-  Generated template for the MaskapaiPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  
     <ion-navbar>
-      <ion-title>Pascabayar</ion-title>
+      <ion-title>PASCABAYAR</ion-title>
     </ion-navbar>
   
   </ion-header>
-  
-  
   <ion-content>
-  
-    <iframe align="center" height="100%" width="100%" src="https://cigist.github.io/metapro/pascabayar.html" name="PULSA"></iframe>
+      <ion-list>
+            <ion-item>
+              <ion-label color="primary">Jenis Pascabayar</ion-label>
+              <ion-select [(ngModel)]="jenistagihan" placeholder="Not Selected">
+                <ion-option value="halo">Tagihan HALO</ion-option>
+                <ion-option value="matrix">Tagihan Matrix</ion-option>
+                <ion-option value="xplor">Tagihan Xlpor</ion-option>
+                <ion-option value="esia">Tagihan Esia</ion-option>
+                <ion-option value="smart">Tagihan Smartfren</ion-option>
+                <ion-option value="three">Tagihan Three</ion-option>
+                <ion-option value="Indovision">INDOVISION</ion-option>
+                <ion-option value="aetra">PDAM Aetra</ion-option>
+                <ion-option value="pdambandung">PDAM Bandung</ion-option>
+                <ion-option value="pdamkabbandung">PDAM Kab Bandung</ion-option>
+                <ion-option value="pdamjakarta">PDAM Jakarta</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary">Nomor Tagihan</ion-label>
+              <ion-input placeholder="Not Inputed"></ion-input>
+            </ion-item>
+            <button ion-button block (tap)="openmodal()">CEK TAGIHAN PASCABAYAR</button>
+        </ion-list>
   </ion-content>
-  

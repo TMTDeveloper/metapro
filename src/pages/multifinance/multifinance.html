@@ -1,20 +1,33 @@
-<!--
-  Generated template for the MaskapaiPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  
     <ion-navbar>
-      <ion-title>Multifinance</ion-title>
+      <ion-title>Multi Finance</ion-title>
     </ion-navbar>
   
   </ion-header>
-  
-  
   <ion-content>
-  
-    <iframe align="center" height="100%" width="100%" src="https://cigist.github.io/metapro/multifinance.html" name="PULSA"></iframe>
+      <ion-list>
+            <ion-item>
+              <ion-label color="primary">Jenis Tagihan</ion-label>
+              <ion-select [(ngModel)]="jenistagihan" placeholder="Not Selected">
+                <ion-option value="adira">ADIRA Finance</ion-option>
+                <ion-option value="fif">FIF Finance</ion-option>
+                <ion-option value="baf">BAF Finance</ion-option>
+                <ion-option value="mcf">MCF Finance</ion-option>
+                <ion-option value="wom">WOM Finance</ion-option>
+                <ion-option value="summitot">Summit OTO Finance</ion-option>
+                <ion-option value="mandiritunas">Mandiri Tunas Finance</ion-option>
+                <ion-option value="kreditplus">Kredit Plus Finance</ion-option>
+                <ion-option value="itcmulti">ITC Multi Finance</ion-option>
+                <ion-option value="MNC">MNC Fianance</ion-option>
+                <ion-option value="columbia">Columbia</ion-option>
+                <ion-option value="acc">ACC</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary">Nomor Pelanggan</ion-label>
+              <ion-input placeholder="Not Inputed"></ion-input>
+            </ion-item>
+            <button ion-button block (tap)="openmodal()">CEK TAGIHAN</button>
+        </ion-list>
   </ion-content>
   

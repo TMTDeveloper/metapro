@@ -1,16 +1,6 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ModalController,
-  ViewController
-} from 'ionic-angular';
-import {
-  DatePicker
-} from '@ionic-native/date-picker';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { DatePicker } from '@ionic-native/date-picker';
 import moment from 'moment';
 /**
  * Generated class for the MaskapaiPage page.
@@ -49,6 +39,7 @@ export class MaskapaiPage {
     roundtrip: false
   }
   simpleColumns: any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.simpleColumns = [{
       name: 'adult',
@@ -156,7 +147,13 @@ export class MaskapaiPage {
     });
   }
 
+  caripesawat() {
+    this.navCtrl.push(MaskapaiSearchPage, {
+      'data': this.datasearch
+    });
+  }
 
+  
 }
 
 @Component({
@@ -2912,6 +2909,15 @@ export class SearchPage {
         }
 
       )
+  }
+}
+
+@Component({
+  templateUrl: 'searchmaskapai.html'
+})
+export class MaskapaiSearchPage {
+  constructor(public navCtrl: NavController, public navParams: NavParams ) {
+
   }
 }
 

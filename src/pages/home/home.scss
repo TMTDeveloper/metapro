@@ -6,6 +6,23 @@ page-home {
         background: linear-gradient(to bottom, #1e5799 0%,#47b48a 0%,#00ade7 100%,#2989d8 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#2989d8',GradientType=0 );
     }
+
+    .salkalqr {
+        padding-top: 10px;
+    }
+
+    ion-header {
+        .toolbar {
+          position: absolute;
+          .toolbar-background {
+            background: transparent;
+          }
+          .toolbar-title {
+            color: black;
+          }
+        }
+      }
+
     .butcol{
         
         height: auto;
