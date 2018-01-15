@@ -1,6 +1,4 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 import {
   IonicPage,
   NavController,
@@ -10,28 +8,14 @@ import {
   AlertController,
   ViewController
 } from 'ionic-angular';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
 import moment from 'moment';
-import {
-  DecimalPipe
-} from '@angular/common';
-import {
-  SortgridPipe2
-} from '../../pipes/sortgrid2/sortgrid2';
+import { DecimalPipe } from '@angular/common';
+import { SortgridPipe2 } from '../../pipes/sortgrid2/sortgrid2';
 import { DatePipe } from '@angular/common';
 
 
-/**
- * Generated class for the DaftarnasabahPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 /**
  * Generated class for the PascabayarPage page.
@@ -15,11 +16,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PascabayarPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PascabayarPage');
+  }
+
+  openmodal() {
+    let myModal = this.modalCtrl.create(ModalPascaBayar);
+    myModal.present();
+  }
+
+}
+
+@Component({
+  templateUrl: 'modalpascabayar.html',
+})
+export class ModalPascaBayar {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad PascabayarPage');
+  }
+
+  closeModal(){
+    this.viewCtrl.dismiss();
   }
 
 }
