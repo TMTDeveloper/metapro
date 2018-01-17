@@ -9,7 +9,6 @@ import {TabsPage} from '../pages/tabs/tabs';
 import { HelpPage } from '../pages/help/help';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage } from '../pages/history/history';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from '../pages/login/login';
