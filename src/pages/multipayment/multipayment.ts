@@ -1,34 +1,11 @@
-import {
-  DecimalPipe
-} from '@angular/common';
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  MenuController,
-  LoadingController,
-  AlertController,
-  ModalController,
-  ViewController
-} from 'ionic-angular';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
-import {
-  SortgridPipe
-} from '../../pipes/sortgrid/sortgrid';
-/**
- * Generated class for the MultipaymentPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+// import { DecimalPipe } from '@angular/common';
+import { Component } from '@angular/core';
+// import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ModalController, ViewController } from 'ionic-angular';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+// import { SortgridPipe } from '../../pipes/sortgrid/sortgrid';
+
 
 @IonicPage()
 @Component({
@@ -57,7 +34,6 @@ export class MultipaymentPage {
   }];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private decimalPipe: DecimalPipe,
     public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController, public modalCtrl: ModalController) {
     this.authInfo = this.auth.authInfo;
     this.getData('T01');

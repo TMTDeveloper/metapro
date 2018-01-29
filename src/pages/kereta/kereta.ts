@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
-import { DatePicker } from '@ionic-native/date-picker';
+// import { DatePicker } from '@ionic-native/date-picker';
 import moment from 'moment';
 
 @IonicPage()
@@ -1540,7 +1540,7 @@ export class TujuanStasiunModal {
 
 // import { SlimLoadingBarService } from 'ng2-slim-loading-bar'
 import { HttpReqProvider } from '../../providers/http-req/http-req';
-import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+// import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
 
 @Component({
   templateUrl: 'keretasearch.html'

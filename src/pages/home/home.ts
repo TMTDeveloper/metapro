@@ -1,34 +1,17 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  NavController,
-  AlertController,
-  LoadingController,
-  ModalController
-} from 'ionic-angular';
-import {
-  DecimalPipe
-} from '@angular/common';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
-import {
-  BarcodeScanner,
-  BarcodeScannerOptions
-} from '@ionic-native/barcode-scanner';
+import { Component } from '@angular/core';
+import { NavController, AlertController, LoadingController, ModalController } from 'ionic-angular';
+import { DecimalPipe } from '@angular/common';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import moment from 'moment';
-
-import {SaldomodalPage
-} from '../saldomodal/saldomodal';
+import { SaldomodalPage } from '../saldomodal/saldomodal';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
   authInfo: any;
   loading: any;
@@ -103,17 +86,16 @@ agenCheck(){
         min: 6
       }, ],
       buttons: [{
+          text: 'Cancel',
+          handler: data => {}
+        },
+        {
           text: 'Confirm',
           handler: data => {
             this.pin = data.PIN;
             this.saldoModal(tran);
           }
-        },
-        {
-          text: 'Cancel',
-          handler: data => {}
         }
-
       ]
     });
     prompt.present();
