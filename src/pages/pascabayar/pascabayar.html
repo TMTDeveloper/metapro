@@ -4,7 +4,7 @@
     </ion-navbar>
   
   </ion-header>
-  <ion-content>
+  <ion-content padding>
       <ion-list>
             <ion-item>
               <ion-label color="primary">Jenis Pascabayar</ion-label>
@@ -24,7 +24,7 @@
             </ion-item>
             <ion-item>
               <ion-label color="primary">Nomor Tagihan</ion-label>
-              <ion-input placeholder="Not Inputed"></ion-input>
+              <ion-input type="number" pattern="\d*" placeholder="Not Inputed"></ion-input>
             </ion-item>
             <button ion-button block (tap)="openmodal()">CEK TAGIHAN PASCABAYAR</button>
         </ion-list>

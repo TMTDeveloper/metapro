@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DecimalPipe } from '@angular/common';
+// import { DecimalPipe } from '@angular/common';
 
 /**
  * Generated class for the KprPage page.
@@ -16,7 +16,7 @@ import { DecimalPipe } from '@angular/common';
 })
 export class KtaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private decimalPipe: DecimalPipe) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   pendapatan: number = 3000000;

@@ -1,5 +1,5 @@
-
-import { Injectable, Pipe, PipeTransform } from '@angular/core';
+// Kode Sebelumnya import { Injectable, Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 /**
  * Generated class for the SortgridPipe pipe.

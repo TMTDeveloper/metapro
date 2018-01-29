@@ -1,34 +1,11 @@
-import {
-  DecimalPipe
-} from '@angular/common';
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  MenuController,
-  LoadingController,
-  AlertController
-} from 'ionic-angular';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
-import {
-  SortgridPipe
-} from '../../pipes/sortgrid/sortgrid';
+// import { DecimalPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+// import { SortgridPipe } from '../../pipes/sortgrid/sortgrid';
 
 
-/**
- * Generated class for the VouchergamesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -50,7 +27,6 @@ export class VouchergamesPage {
   vendorlength: number = 0;
   vresponse : any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private decimalPipe: DecimalPipe,
     public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController) {
     this.authInfo = this.auth.authInfo;
     this.game = "GAME";

@@ -12,7 +12,7 @@ import { HistoryPage } from '../pages/history/history';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from '../pages/login/login';
-import {LakupandaiPage} from '../pages/lakupandai/lakupandai';
+// import {LakupandaiPage} from '../pages/lakupandai/lakupandai';
 import { CurrencyPipe } from '@angular/common';
 import { DecimalPipe } from '@angular/common';
 import { HttpReqProvider } from '../providers/http-req/http-req';
@@ -20,7 +20,8 @@ import { AuthSingletonProvider } from '../providers/auth-singleton/auth-singleto
 import { HttpModule } from '@angular/http';
 import { QRCodeModule } from 'angular2-qrcode';
 import {ExpandableComponent} from '../components/expandable/expandable';
-import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+// import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {SaldomodalPage} from '../pages/saldomodal/saldomodal'
 import {RegistrationPage} from '../pages/registration/registration'
 import {ChangepassPage} from '../pages/changepass/changepass'

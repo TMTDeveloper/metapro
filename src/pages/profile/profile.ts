@@ -1,16 +1,6 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  MenuController,
-  LoadingController,
-  AlertController,
-  ViewController,
-  ModalController
-} from 'ionic-angular';
+import { Component } from '@angular/core';
+// import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController, ViewController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ViewController, ModalController } from 'ionic-angular';
 import {
   HttpReqProvider
 } from '../../providers/http-req/http-req';

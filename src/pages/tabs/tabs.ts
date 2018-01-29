@@ -1,10 +1,9 @@
 import { Component, } from '@angular/core';
-
 import { HelpPage } from '../help/help';
 import { ProfilePage } from '../profile/profile';
 import { HomePage } from '../home/home';
 import { HistoryPage } from '../history/history';
-import {LoginPage} from '../login/login';
+// import {LoginPage} from '../login/login';
 import { NavController,MenuController  } from 'ionic-angular';
 
 @Component({

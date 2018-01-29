@@ -1,32 +1,10 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  AlertController,
-  MenuController,
-  LoadingController
-} from 'ionic-angular';
-import {
-  DecimalPipe
-} from '@angular/common';
-import {
-  HomePage
-} from '../home/home'
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
-/**
- * Generated class for the DetailsimulasiPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+// import { DecimalPipe } from '@angular/common';
+// import { HomePage } from '../home/home';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+
 
 
 @IonicPage()
@@ -69,7 +47,7 @@ export class DetailsimulasimikroPage {
     });
   }
 
-  constructor(public navCtrl: NavController, navParams: NavParams, private decimalPipe: DecimalPipe, public alertctrl: AlertController,
+  constructor(public navCtrl: NavController, navParams: NavParams, public alertctrl: AlertController,
     public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider) {
     this.pendapatan = navParams.get("pendapatan");
     this.sukubunga = navParams.get("sukubunga");

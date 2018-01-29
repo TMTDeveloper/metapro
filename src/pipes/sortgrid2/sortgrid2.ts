@@ -1,12 +1,7 @@
+// import { Injectable, Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-import { Injectable, Pipe, PipeTransform } from '@angular/core';
 
-/**
- * Generated class for the SortgridPipe pipe.
- *
- * See https://angular.io/docs/ts/latest/guide/pipes.html for more info on
- * Angular Pipes.
- */
 @Pipe({
   name: 'orderBy',
 })

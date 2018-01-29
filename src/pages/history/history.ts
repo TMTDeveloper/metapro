@@ -1,30 +1,11 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams
-} from 'ionic-angular';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
-import {
-  DecimalPipe
-} from '@angular/common';
-import { DatePipe } from '@angular/common';
-import {
-  SortgridPipe
-} from '../../pipes/sortgrid/sortgrid';
-/**
- * Generated class for the HistoryPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+// import { DecimalPipe } from '@angular/common';
+// import { DatePipe } from '@angular/common';
+// import { SortgridPipe } from '../../pipes/sortgrid/sortgrid';
+
 
 @IonicPage()
 @Component({
