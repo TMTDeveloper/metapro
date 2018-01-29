@@ -9,7 +9,6 @@ import {TabsPage} from '../pages/tabs/tabs';
 import { HelpPage } from '../pages/help/help';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage } from '../pages/history/history';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from '../pages/login/login';
@@ -23,18 +22,19 @@ import { QRCodeModule } from 'angular2-qrcode';
 import {ExpandableComponent} from '../components/expandable/expandable';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import {SaldomodalPage} from '../pages/saldomodal/saldomodal'
-import {RegistrationPage}
-from '../pages/registration/registration'
-import {ChangepassPage}
-from '../pages/changepass/changepass'
-import {SortgridPipe}
-from '../pipes/sortgrid/sortgrid';
+import {RegistrationPage} from '../pages/registration/registration'
+import {ChangepassPage} from '../pages/changepass/changepass'
+import {SortgridPipe} from '../pipes/sortgrid/sortgrid';
 import { DatePicker } from '@ionic-native/date-picker';
 import {NotSame} from '../pages/changepass/changepass';
 import { Geolocation } from '@ionic-native/geolocation';
-import {MaskapaiPageModule} from '../pages/maskapai/maskapai.module'
-import {MultipaymentPageModule} from '../pages/multipayment/multipayment.module'
-import {HotelPageModule} from '../pages/hotel/hotel.module'
+import {MaskapaiPageModule} from '../pages/maskapai/maskapai.module';
+import {MultipaymentPageModule} from '../pages/multipayment/multipayment.module';
+import {HotelPageModule} from '../pages/hotel/hotel.module';
+import {CektagihanPageModule} from '../pages/cektagihan/cektagihan.module';
+import {MultifinancePageModule} from '../pages/multifinance/multifinance.module';
+import {PascabayarPageModule} from '../pages/pascabayar/pascabayar.module';
+import {KeretaPageModule} from '../pages/kereta/kereta.module';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,16 @@ import {HotelPageModule} from '../pages/hotel/hotel.module'
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),HttpModule,QRCodeModule,MaskapaiPageModule,MultipaymentPageModule,HotelPageModule
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    QRCodeModule,
+    MaskapaiPageModule,
+    MultipaymentPageModule,
+    HotelPageModule,
+    CektagihanPageModule,
+    MultifinancePageModule,
+    PascabayarPageModule,
+    KeretaPageModule
 
    
   ],

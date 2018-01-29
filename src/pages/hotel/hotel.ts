@@ -18,13 +18,29 @@ import  moment  from 'moment';
 })
 export class HotelPage {
 
+  datasearch: any = {
+    xlocation: '',
+    checkindate: moment().format("YYYY-MM-DD"),
+    nightduration:  '',
+    checkoutdate: moment().format("YYYY-MM-DD"),
+    xroom: '',
+    xadult: 0,
+    xchild: 0,
+    xsort: '',
+    xminprice: '',
+    xmaxprice: '',
+    minstar:'',
+    maxstar:'',
+    xlatitude: '',
+    xlongitude: ''
+  }
+
+
 
   destinations: string = '';
   duration: any='';
   room: any='';
   guest: any='';
-  starmin: any='';
-  starmax: any='';
   pricemin: any='';
   pricemax: any='';
 
@@ -233,7 +249,6 @@ export class HotelPage {
 
 
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad HotelPage');
   }
@@ -381,6 +396,7 @@ export class ModalHotelDestinationPage {
   }
 }
   @Component({
+    selector: 'page-searchhotel',
     templateUrl: 'hotelsearch.html',
   })
   export class ModalHotelSearch {
@@ -420,7 +436,6 @@ export class ModalHotelDestinationPage {
     }
 
     closeModal() {
-      console.log
       this.viewCtrl.dismiss();
     }
 
