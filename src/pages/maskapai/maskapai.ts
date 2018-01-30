@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
-import { DatePicker } from '@ionic-native/date-picker';
+// import { DatePicker } from '@ionic-native/date-picker';
 import moment from 'moment';
 /**
  * Generated class for the MaskapaiPage page.
@@ -1584,15 +1584,9 @@ export class AirportsPage {
   }
 }
 
-import {
-  SlimLoadingBarService
-} from 'ng2-slim-loading-bar'
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar'
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+// import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
 
 @Component({
   selector: 'page-search',

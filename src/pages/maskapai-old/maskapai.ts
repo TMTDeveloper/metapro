@@ -1,23 +1,8 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ModalController,
-  ViewController
-} from 'ionic-angular';
-import {
-  DatePicker
-} from '@ionic-native/date-picker';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+// import { DatePicker } from '@ionic-native/date-picker';
 import moment from 'moment';
-/**
- * Generated class for the MaskapaiPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({

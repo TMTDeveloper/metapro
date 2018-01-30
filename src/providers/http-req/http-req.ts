@@ -1,29 +1,14 @@
-import {
-  Injectable
-} from '@angular/core';
-import {
-  Http,
-  Headers,
-  RequestOptions
-} from '@angular/http';
-import 'rxjs/add/operator/map';
-import {
-  Observable
-} from 'rxjs/Rx'
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+// import 'rxjs/add/operator/map';
+// import { Observable } from 'rxjs/Rx';
 
-
-/*
-  Generated class for the HttpReqProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class HttpReqProvider {
   //baseurlxpay:string='http://202.158.20.141:5001/xpay-service/api/'
   baseurlxpay:string='http://202.158.20.141:5001/xpayws/rest/'
  
-  baseurl: string = 'http://202.158.20.141:5001/semetapro/api/'
+  baseurl: string = 'http://113.20.29.95:8080/semetapro/api/'
   constructor(public http: Http) {}
 
   getreq(url: string) {

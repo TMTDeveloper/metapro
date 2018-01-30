@@ -1,34 +1,12 @@
-import {
-  DecimalPipe
-} from '@angular/common';
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  MenuController,
-  LoadingController,
-  AlertController
-} from 'ionic-angular';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
-import {
-  GoogleMapsAPIWrapper
-} from '@agm/core'
+import { DecimalPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
+import { GoogleMapsAPIWrapper } from '@agm/core'
 declare var google: any
 
-/**
- * Generated class for the SetortunaiPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -132,9 +110,8 @@ export class SetortunaiPage {
   authInfo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private decimalPipe: DecimalPipe,
-    public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController,
-    private gmapsApi: GoogleMapsAPIWrapper) {
+    private decimalPipe: DecimalPipe, private gmapsApi: GoogleMapsAPIWrapper,
+    public loadingCtrl: LoadingController, public httpreq: HttpReqProvider, public auth: AuthSingletonProvider, public alertctrl: AlertController) {
     this.authInfo = this.auth.authInfo;
     
   }

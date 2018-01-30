@@ -20,7 +20,7 @@
     
           <ion-item>
               <ion-label inline>No Handphone</ion-label>
-              <ion-input placeholder="081xxxxxxxxx" type="tel" [(ngModel)]='handphoneno'>
+              <ion-input placeholder="081xxxxxxxxx" type="number" pattern="\d*" [(ngModel)]='handphoneno'>
               </ion-input>
             </ion-item>
      <ion-item>
@@ -44,6 +44,7 @@
           </ion-select>
         </ion-item>
         <ion-item>
+          <ion-label stacked>Deskripsi</ion-label>
           <ion-textarea readonly="true" type="text" rows="3" maxLength="500" [(ngModel)]="selecteddetail==undefined?' ':selecteddetail.vendorCode!==selectedvendor?' ':selecteddetail.pulsaName"
             name="note" textarea></ion-textarea>
         </ion-item>

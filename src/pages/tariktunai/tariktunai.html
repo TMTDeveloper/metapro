@@ -22,7 +22,7 @@
            </ion-item>
               <ion-item>
                 <ion-label>Nominal Penarikan</ion-label>
-                <ion-input type="text" [(ngModel)]="input.nominalstr" name="nominal" (change)="isnan($event.target.value)?$event.target.value='':onChangePrice($event.target.value)" (keyup)="isnan($event.target.value)?$event.target.value='':onPriceUp($event.target.value)" (focus)="($event.target.value='')"></ion-input>
+                <ion-input type="number" pattern="\d*" [(ngModel)]="input.nominalstr" name="nominal" (change)="isnan($event.target.value)?$event.target.value='':onChangePrice($event.target.value)" (keyup)="isnan($event.target.value)?$event.target.value='':onPriceUp($event.target.value)" (focus)="($event.target.value='')"></ion-input>
               </ion-item>
         
                 <ion-item>

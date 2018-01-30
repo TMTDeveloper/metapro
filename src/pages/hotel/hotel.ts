@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
-import { DatePicker } from '@ionic-native/date-picker';
-import { MultiPickerModule } from 'ion-multi-picker';
+// import { DatePicker } from '@ionic-native/date-picker';
+// import { MultiPickerModule } from 'ion-multi-picker';
 import  moment  from 'moment';
 
 /**
@@ -354,7 +354,7 @@ export class ModalHotelDestinationPage {
   searchQuery: any = '';
   items: any[];
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private viewCtrl: ViewController) {
+  constructor(private viewCtrl: ViewController) {
     this.initializeItems();
   }
 

@@ -1,35 +1,12 @@
-import {
-Input, OnChanges,
-  SimpleChanges, ViewChild
-} from '@angular/core';
-
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  MenuController,
-  LoadingController,
-  AlertController,
-  ViewController
-} from 'ionic-angular';
-import {
-  HttpReqProvider
-} from '../../providers/http-req/http-req';
-import {
-  AuthSingletonProvider
-} from '../../providers/auth-singleton/auth-singleton';
+// import { Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
+// import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ViewController } from 'ionic-angular';
+import { HttpReqProvider } from '../../providers/http-req/http-req';
+import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
 
 
-
-/**
- * Generated class for the ChangepassPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

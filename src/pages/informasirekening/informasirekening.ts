@@ -1,19 +1,11 @@
 import { Component } from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  MenuController,
-  LoadingController,
-  AlertController,
-  ViewController
-} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ViewController } from 'ionic-angular';
 import { HttpReqProvider } from '../../providers/http-req/http-req';
 import { AuthSingletonProvider } from '../../providers/auth-singleton/auth-singleton';
 import moment from 'moment';
-import { DecimalPipe } from '@angular/common';
-import { SortgridPipe2 } from '../../pipes/sortgrid2/sortgrid2';
-import { DatePipe } from '@angular/common';
+// import { DecimalPipe } from '@angular/common';
+// import { SortgridPipe2 } from '../../pipes/sortgrid2/sortgrid2';
+// import { DatePipe } from '@angular/common';
 
 
 
@@ -223,18 +215,18 @@ pin:any;
         max: 6,
         min: 6
       }, ],
-      buttons: [{
-          text: 'Confirm',
-          handler: data => {
-            this.pin = data.PIN;
-            this.pinCheck();
-
-          }
-        },
+      buttons: [
         {
           text: 'Cancel',
           handler: data => {
             this.navCtrl.pop();
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: data => {
+            this.pin = data.PIN;
+            this.pinCheck();
           }
         }
 

@@ -13,7 +13,7 @@
   </ion-header>
   
   
-  <ion-content class="outer-content">
+  <ion-content padding class="outer-content">
     
      
     
@@ -48,7 +48,7 @@
             <p style="color:black">Suku Bunga (%)<p>
                 <strong><p style="color:#dd0000; font-size: 20px;text-align: center;">{{sukubunga/100 | number:'2.2-5'}} %<p></strong>
           </ion-list-header>
-            <ion-range min="100" max="500" step="15" [(ngModel)]="sukubunga" color="primary" class="bar">
+            <ion-range min="100" max="500" step="5" [(ngModel)]="sukubunga" color="primary" class="bar">
             </ion-range>
             <ion-item >
                   <p item-start class="bar2">1 %</p>    
