@@ -6,9 +6,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class HttpReqProvider {
   //baseurlxpay:string='http://202.158.20.141:5001/xpay-service/api/'
-  baseurlxpay:string='http://202.158.20.141:5001/xpayws/rest/'
- 
+  baseurlxpay:string='http://101.255.120.109:8888/xpayws/rest/'
   baseurl: string = 'http://113.20.29.95:8080/semetapro/api/'
+
+  
   constructor(public http: Http) {}
 
   getreq(url: string) {
@@ -43,4 +44,5 @@ export class HttpReqProvider {
     let obs = this.http.post(this.baseurlxpay + url+body,body,options).map(res => res.json())
     return obs;
   };
+
 }

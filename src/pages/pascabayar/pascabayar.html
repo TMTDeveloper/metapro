@@ -8,24 +8,20 @@
       <ion-list>
             <ion-item>
               <ion-label color="primary">Jenis Pascabayar</ion-label>
-              <ion-select [(ngModel)]="jenistagihan" placeholder="Not Selected">
-                <ion-option value="halo">Tagihan HALO</ion-option>
-                <ion-option value="matrix">Tagihan Matrix</ion-option>
-                <ion-option value="xplor">Tagihan Xlpor</ion-option>
-                <ion-option value="esia">Tagihan Esia</ion-option>
-                <ion-option value="smart">Tagihan Smartfren</ion-option>
-                <ion-option value="three">Tagihan Three</ion-option>
-                <ion-option value="Indovision">INDOVISION</ion-option>
-                <ion-option value="aetra">PDAM Aetra</ion-option>
-                <ion-option value="pdambandung">PDAM Bandung</ion-option>
-                <ion-option value="pdamkabbandung">PDAM Kab Bandung</ion-option>
-                <ion-option value="pdamjakarta">PDAM Jakarta</ion-option>
+              <ion-select [(ngModel)]="datapost.xproductcode" placeholder="Not Selected">
+                <ion-option value="BMSHPXL">Pascabayar XL</ion-option>
+                <ion-option value="BMSHPTSEL">Pascabayar TSEL</ion-option>
+                <ion-option value="BMSHPTHREE">Pascabayar THREE</ion-option>
+                <ion-option value="BMSHPSMART">Pascabayar SMART</ion-option>
+                <ion-option value="BMSHPFREN">Pascabayar FREN</ion-option>
+                <ion-option value="BMSHPESIA">Pascabayar ESIA</ion-option>
+                <ion-option value="BMSHPMTRIX">Pascabayar MATRIX</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
               <ion-label color="primary">Nomor Tagihan</ion-label>
-              <ion-input type="number" pattern="\d*" placeholder="Not Inputed"></ion-input>
+              <ion-input [(ngModel)]="nomorpelanggan" type="number" pattern="\d*" placeholder="Not Inputed"></ion-input>
             </ion-item>
-            <button ion-button block (tap)="openmodal()">CEK TAGIHAN PASCABAYAR</button>
+            <button ion-button block (tap)="SubmitCekTagihan()">CEK TAGIHAN PASCABAYAR</button>
         </ion-list>
   </ion-content>

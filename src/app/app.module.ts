@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { PinPage } from '../pages/pin/pin';
 import {TabsPage} from '../pages/tabs/tabs';
 import { HelpPage } from '../pages/help/help';
 import { ProfilePage } from '../pages/profile/profile';
@@ -12,6 +13,7 @@ import { HistoryPage } from '../pages/history/history';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from '../pages/login/login';
+import {ReceiptPage} from '../pages/receipt/receipt';
 // import {LakupandaiPage} from '../pages/lakupandai/lakupandai';
 import { CurrencyPipe } from '@angular/common';
 import { DecimalPipe } from '@angular/common';
@@ -30,11 +32,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 import {NotSame} from '../pages/changepass/changepass';
 import { Geolocation } from '@ionic-native/geolocation';
 import {MaskapaiPageModule} from '../pages/maskapai/maskapai.module';
-import {MultipaymentPageModule} from '../pages/multipayment/multipayment.module';
 import {HotelPageModule} from '../pages/hotel/hotel.module';
-import {CektagihanPageModule} from '../pages/cektagihan/cektagihan.module';
-import {MultifinancePageModule} from '../pages/multifinance/multifinance.module';
-import {PascabayarPageModule} from '../pages/pascabayar/pascabayar.module';
 import {KeretaPageModule} from '../pages/kereta/kereta.module';
 
 @NgModule({
@@ -50,7 +48,11 @@ import {KeretaPageModule} from '../pages/kereta/kereta.module';
     LoginPage,
     SaldomodalPage,
     RegistrationPage,
-    ChangepassPage,SortgridPipe,NotSame
+    ChangepassPage,
+    SortgridPipe,
+    NotSame,
+    PinPage,
+    ReceiptPage
 
 
   ],
@@ -60,12 +62,8 @@ import {KeretaPageModule} from '../pages/kereta/kereta.module';
     HttpModule,
     QRCodeModule,
     MaskapaiPageModule,
-    MultipaymentPageModule,
     HotelPageModule,
-    CektagihanPageModule,
-    MultifinancePageModule,
-    PascabayarPageModule,
-    KeretaPageModule
+    KeretaPageModule,
 
    
   ],
@@ -81,7 +79,9 @@ import {KeretaPageModule} from '../pages/kereta/kereta.module';
     LoginPage,
     SaldomodalPage,
     RegistrationPage,
-    ChangepassPage
+    ChangepassPage,
+    PinPage,
+    ReceiptPage
   ],
   providers: [
     StatusBar,

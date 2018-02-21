@@ -8,18 +8,22 @@
       <ion-list>
             <ion-item>
               <ion-label color="primary">Jenis Tagihan</ion-label>
-              <ion-select [(ngModel)]="jenistagihan" placeholder="Not Selected">
-                <ion-option value="telkom">Telkom</ion-option>
-                <ion-option value="pdam">PDAM</ion-option>
-                <ion-option value="plnpasca">PLN Pascabayar</ion-option>
-                <ion-option value="indovision">Indovision</ion-option>
+              <ion-select [(ngModel)]="datapost.xproductcode" placeholder="Not Selected">
+                <ion-option value="BMSTELEPON">Telkom Telepon</ion-option>
+                <ion-option value="BMSTVTLKMV">Telkom Vision</ion-option>
+                <ion-option value="BMSSPEEDY">Telkom Speedy</ion-option>
+                
+                
+                
+
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label color="primary">Nomor Tagihan</ion-label>
-              <ion-input type="number" pattern="\d*" placeholder="Not Inputed"></ion-input>
+              <ion-label color="primary">Nomor Pelanggan</ion-label>
+              <ion-input [(ngModel)]="nomorpelanggan" type="number" pattern="\d*" placeholder="Not Inputed"></ion-input>
             </ion-item>
-            <button ion-button block (tap)="openmodal()">CEK TAGIHAN</button>
+            <button ion-button block (tap)="SubmitCekTagihan()">CEK TAGIHAN</button>
         </ion-list>
   </ion-content>
+  <!-- (tap)="gotoPage('ReceiptPage')" -->
   
