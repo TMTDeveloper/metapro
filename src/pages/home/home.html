@@ -37,30 +37,48 @@
       </button>
     </div>
   </ion-segment>
-  <div class="spacer" style="height: 20px;"></div>
-  <div class="container">
-    <div class="butcolmenu" button (click)="gotoPage('LakupandaiPage')">
-      <img src="assets/img/lakupandai.png" class="imgbutton">
-    </div>
-    <div button class="butcolmenu" (click)="gotoPage('MobilePage')">
-      <img src="assets/img/mobile.png" class="imgbutton">
-    </div>
-    <div class="butcolmenu" button (click)="gotoPage('ProdukperbankanPage')">
-      <img src="assets/img/produk.png" class="imgbutton">
-    </div>
-  </div>
-  <div class="spacer" style="height: 30px;"></div>
-  <div class="container">
-    <div class="butcolmenu" button (click)="gotoPage('PembelianPage')">
-      <img src="assets/img/pembelian.png" class="imgbutton">
-    </div>
-    <div class="butcolmenu" button (click)="gotoPage('PembayaranPage')">
-      <img src="assets/img/pembayaran.png" class="imgbutton">
-    </div>
-    <div class="butcolmenu" button (click)="gotoPage('ReportPage')">
-      <img src="assets/img/report.png" class="imgbutton">
-
-    </div>
-  </div>
+  
+  <ion-grid text-center >
+    <ion-row>
+      <ion-col>
+        <button class="main-button" ion-button round large color="light" (click)="gotoPage('LakupandaiPage')">
+          <ion-img class="img-inside-button" src="assets/img/lakupandai.png" width="50" height="50"></ion-img>
+        </button>
+        <p class="title-main-menu" ion-text color="light">LAKU PANDAI</p>
+      </ion-col>
+      <ion-col>
+          <button class="main-button" ion-button round large color="light" (click)="gotoPage('MobilePage')">
+            <ion-img class="img-inside-button" src="assets/img/mobile.png" width="50" height="50"></ion-img>
+          </button>
+          <p class="title-main-menu" ion-text color="light">MOBILE BANKING</p>
+        </ion-col>
+        <ion-col>
+            <button class="main-button" ion-button round large color="light" (click)="gotoPage('ProdukperbankanPage')">
+              <ion-img class="img-inside-button" src="assets/img/produk.png" width="50" height="50"></ion-img>
+            </button>
+            <p class="title-main-menu" ion-text color="light">PRODUK</p>
+          </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button class="main-button" ion-button round large color="light" (click)="gotoPage('PembelianPage')">
+              <ion-img class="img-inside-button" src="assets/img/pembelian.png" width="50" height="50"></ion-img>
+            </button>
+            <p class="title-main-menu" ion-text color="light">PEMBELIAN</p>
+          </ion-col>
+          <ion-col>
+              <button class="main-button" ion-button round large color="light" (click)="gotoPage('PembayaranPage')">
+                <ion-img class="img-inside-button" src="assets/img/pembayaran.png" width="50" height="50"></ion-img>
+              </button>
+              <p class="title-main-menu" ion-text color="light">PEMBAYARAN</p>
+            </ion-col>
+            <ion-col>
+                <button class="main-button" ion-button round large color="light" (tap)="gotoPage('ReportPage')">
+                  <ion-img class="img-inside-button" src="assets/img/report.png" width="50" height="50"></ion-img>
+                </button>
+                <p class="title-main-menu" ion-text color="light">LAPORAN</p>
+              </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

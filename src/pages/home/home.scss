@@ -7,8 +7,16 @@ page-home {
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#2989d8',GradientType=0 );
     }
 
+    .main-button{
+        margin-bottom: -5px;
+    }
+    .img-inside-button {
+            padding: 6px;
+        }
+
     .salkalqr {
-        padding-top: 10px;
+        padding-top: 15px;
+        padding-bottom: 10px;
     }
 
     ion-header {
@@ -35,38 +43,7 @@ page-home {
         background: white;
     }
     
-    .butcolmenu{
-          
-   height:100%;
-   display: flex;
-   justify-content: center; /* align items horizontally (in this case) */
-   align-items: center;  
-   border-radius: 50%;
-   background: white;
-   padding: 15px; 
-   margin:5px;
-    }
-    
-    .colbutmenu{
-        max-height: 100%;
-    }
-    
-.imgbutton{
-    display: inline-block;
-    height:100%; 
-    padding-left: 10px;
-    padding-right: 10px;
 
-}
-
-.container{
-    display: flex;
-    justify-content: center; /* align items horizontally (in this case) */
-    align-items: center;     /* align items vertically (in this case) */
-    height: 19%;
-    width: 100%;
-
-}
 .logo{
     display: flex;
     justify-content: center; /* align items horizontally (in this case) */
