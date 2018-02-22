@@ -34,6 +34,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import {MaskapaiPageModule} from '../pages/maskapai/maskapai.module';
 import {HotelPageModule} from '../pages/hotel/hotel.module';
 import {KeretaPageModule} from '../pages/kereta/kereta.module';
+import {NumberToWordsPipe} from '../pipes/numbertowords/numbertowords'
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {KeretaPageModule} from '../pages/kereta/kereta.module';
     SortgridPipe,
     NotSame,
     PinPage,
-    ReceiptPage
+    ReceiptPage,
+    NumberToWordsPipe
 
 
   ],

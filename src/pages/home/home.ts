@@ -249,6 +249,7 @@ agenCheck(){
     myModal.present();
   }
 
+  
 }
 
 // Irwan Iglo, [20.08.17 14:13]
