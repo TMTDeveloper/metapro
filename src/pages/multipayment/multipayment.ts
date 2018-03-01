@@ -50,7 +50,7 @@ export class MultipaymentPage {
           xref1: '0',
           xref2: '0',
           xref3: '0',
-          xresponecode: 'NONTAGLIST'
+          xresponecode: 'TV'
     }
     var query = "";
     for (let key in params) {

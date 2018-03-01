@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Pipe({
-  name: 'numberToWords'
+  name: 'numbertoword'
 })
 export class NumberToWordsPipe implements PipeTransform {
 
